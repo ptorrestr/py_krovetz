@@ -2,10 +2,7 @@ language: python
 python:
   - "3.5"
   - "3.6"
-cache:
-  directories:
-    - "$HOME/.cache/pip"
-    - "$HOME/.pyenv"
+cache: pip
 matrix:
   include:
     - os: linux
