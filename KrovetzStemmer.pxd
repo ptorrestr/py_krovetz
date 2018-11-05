@@ -1,0 +1,14 @@
+#cython: language_level=3, boundscheck=False
+# distutils: language = c++
+
+cdef extern from "KrovetzStemmer.hpp" namespace "stem":
+    cdef cppclass KrovetzStemmer:
+        KrovetzStemmer() except +
+        int MAX_WORD_LENGTH
+        char* kstem_stemmer(char *)
+        int kstem_stem_tobuffer(char *, char *)
+        void kstem_add_table_entry(const char*, const char*, bool)
+
+cdef extern from "KrovetzStemmer.cpp":
+    pass
+
