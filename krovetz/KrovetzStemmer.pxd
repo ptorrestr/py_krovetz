@@ -1,7 +1,7 @@
-cdef extern from "KrovetzStemmer.cpp":
+cdef extern from "lib/KrovetzStemmer.cpp":
     pass
 
-cdef extern from "KrovetzStemmer.hpp" namespace "stem":
+cdef extern from "lib/KrovetzStemmer.hpp" namespace "stem":
     cdef cppclass KrovetzStemmer:
         KrovetzStemmer() except +
         int MAX_WORD_LENGTH
