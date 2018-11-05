@@ -11,5 +11,5 @@ cdef class PyKrovetzStemmer:
     def __dealloc__(self):
         del self.c_krovetz
 
-    def kstem_stemmer(self, s):
+    def stem(self, s):
         return self.c_krovetz.kstem_stemmer(s.encode('UTF-8')).decode('UTF-8')
