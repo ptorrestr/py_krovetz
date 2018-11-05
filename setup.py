@@ -25,7 +25,8 @@ SRC_DIR = NAME_APP
 ext_modules = [
   Extension(SRC_DIR + ".wrapped",
     sources = [ SRC_DIR + "/wrapped.pyx"],
-    libraries = []
+    libraries = [],
+    extra_compile_args = ["-std=c++11"]
     )
 ]
 
