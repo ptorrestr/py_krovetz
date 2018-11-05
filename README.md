@@ -6,11 +6,11 @@ This is a Python wrapper for [Krovetz Stemmer C++ library](https://sourceforge.n
 
 ## Installation
 
-TBD
+`python setup.py install`
 
 ## Testing
 
-TBD
+`python setup.py pytest`
 
 ## Usage
 
