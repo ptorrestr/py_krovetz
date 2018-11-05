@@ -43,5 +43,7 @@ setup(
   author_email = 'pablo.torres.t@gmail.com',
   license = 'GNU',
   packages = [NAME_APP],
-  ext_modules = cythonize(ext_modules, compiler_directives={'embedsignature': True})
+  ext_modules = cythonize(ext_modules, compiler_directives={'embedsignature': True}),
+  install_requires = [ 'cython' ],
+  test_requires = ['pytest','pytest-runner'],
 )

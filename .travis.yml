@@ -1,0 +1,16 @@
+language: python
+python:
+  - "3.5"
+  - "3.6"
+cache:
+  directories:
+    - "$HOME/.cache/pip"
+    - "$HOME/.pyenv"
+matrix:
+  include:
+    - os: linux
+    - os: osx
+install:
+  python setup.py build
+script:
+  python setup.py pytest
