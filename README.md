@@ -10,4 +10,10 @@ TBD
 
 TBD
 
+## Usage
 
+```python
+import krovetz
+ks = krovetz.PyKrovetzStemmer()
+ks.stem('walked')
+```
