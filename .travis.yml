@@ -11,7 +11,7 @@ matrix:
     - os: linux
     - os: osx
 install:
-  pip install -r requirements.txt
-  python setup.py build
+  - pip install -r requirements.txt
+  - python setup.py build
 script:
-  python setup.py pytest
+  - python setup.py pytest
