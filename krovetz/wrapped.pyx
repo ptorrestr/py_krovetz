@@ -1,6 +1,6 @@
 #distutils: language = c++
 
-from KrovetzStemmer cimport KrovetzStemmer
+from .KrovetzStemmer cimport KrovetzStemmer
 
 cdef class PyKrovetzStemmer:
     cdef KrovetzStemmer* c_krovetz

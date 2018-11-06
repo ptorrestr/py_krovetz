@@ -6,7 +6,7 @@ import os
 root_path = os.path.dirname(os.path.realpath(__file__))
 readme_file_path = os.path.join(root_path, 'README.md')
 version_file_path = os.path.join(root_path, 'VERSION')
-NAME_APP = "krovetz"  
+NAME_APP = "krovetz"
 src_path = NAME_APP
 
 def readme():
@@ -17,7 +17,7 @@ def version():
   # default version
   version = "0.0.1"
   # Get version from git if any
-  out = subprocess.Popen(['git','describe','--tags'], 
+  out = subprocess.Popen(['git','describe','--tags'],
     stdout = subprocess.PIPE, universal_newlines = True)
   out.wait()
   # If version is available
@@ -56,8 +56,9 @@ ext_modules = [
 
 if USE_CYTHON:
   from Cython.Build import cythonize
-  ext_modules = cythonize(ext_modules, force = True,
-    compiler_directives = {'language_level': '2'})
+  ext_modules = cythonize(ext_modules,
+    compiler_directives = {'language_level': '3'}
+  )
 
 setup(
   name = NAME_APP,
