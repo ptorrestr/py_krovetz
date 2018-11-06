@@ -56,7 +56,8 @@ ext_modules = [
 
 if USE_CYTHON:
   from Cython.Build import cythonize
-  ext_modules = cythonize(ext_modules)
+  ext_modules = cythonize(ext_modules, force = True,
+    compiler_directives = {'language_level': '2'})
 
 setup(
   name = NAME_APP,
