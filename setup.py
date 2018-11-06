@@ -57,7 +57,10 @@ ext_modules = [
 if USE_CYTHON:
   from Cython.Build import cythonize
   ext_modules = cythonize(ext_modules,
-    compiler_directives = {'language_level': '3'}
+    compiler_directives = {'language_level': '3',
+      'c_string_type': 'unicode',
+      'c_string_encoding':'default'
+    }
   )
 
 setup(
@@ -78,5 +81,5 @@ setup(
   ext_modules = ext_modules,
   setup_requires = ['pytest-runner'],
   install_requires = [],
-  tests_require = ['pytest'],
+  tests_require = ['pytest','pytest-benchmark'],
 )
