@@ -35,6 +35,7 @@ setup(
   version = version(),
   description = "Krovetz Stemmer",
   long_description = readme(),
+  long_description_content_type = 'text/markdown',
   classifiers = [
     'Programming Language :: Python :: 3.6',
     'Programming Language :: C++',
