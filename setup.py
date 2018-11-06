@@ -58,7 +58,7 @@ setup(
   license = 'GNU',
   packages = [NAME_APP],
   ext_modules = ext_modules,
-  setup_requires = [],
+  setup_requires = ['pytest-runner'],
   install_requires = [],
-  test_requires = ['pytest','pytest-runner'],
+  tests_require = ['pytest'],
 )

@@ -28,4 +28,4 @@ install:
   - pip install cython
   - python setup.py build
 script:
-  - python setup.py pytest
+  - python setup.py test
