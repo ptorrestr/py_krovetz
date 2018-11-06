@@ -25,7 +25,6 @@ before_install: |
     python --version
   fi
 install:
-  - pip install -r requirements.txt
   - python setup.py build
 script:
   - python setup.py pytest
