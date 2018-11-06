@@ -1,2 +1,3 @@
 recursive-include krovetz *.py *.cpp *.hpp
 prune krovetz/tests
+include VERSION

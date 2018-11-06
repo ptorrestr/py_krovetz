@@ -1,25 +1,41 @@
 from setuptools import setup
 from setuptools import Extension
 import subprocess
+import os
+
+root_path = os.path.dirname(os.path.realpath(__file__))
+readme_file_path = os.path.join(root_path, 'README.md')
+version_file_path = os.path.join(root_path, 'VERSION')
+NAME_APP = "krovetz"  
+src_path = NAME_APP
 
 def readme():
-  with open('README.md') as f:
+  with open(readme_file_path) as f:
     return f.read()
 
 def version():
-  out = subprocess.Popen(['git','describe','--tags'], stdout = subprocess.PIPE, universal_newlines = True)
+  # default version
+  version = "0.0.1"
+  # Get version from git if any
+  out = subprocess.Popen(['git','describe','--tags'], 
+    stdout = subprocess.PIPE, universal_newlines = True)
   out.wait()
-  version = "0.0.1" # default version
+  # If version is available
   if out.returncode == 0:
     m_version = out.stdout.read().strip()
     m_version = m_version.split("-")
     if len(m_version) > 0:
       version = m_version[0]
+      # Save to a file for futher readings
+      with open(version_file_path,'w') as f:
+        f.write(version)
+  else:
+    # When git is not available, we check the file
+    # This is the case when the code is distributed
+    with open(version_file_path) as f:
+      version = f.read()
   print(version)
   return version
-
-NAME_APP = "krovetz"
-SRC_DIR = NAME_APP
 
 try:
   import Cython
@@ -30,9 +46,9 @@ except:
 ext = ".pyx" if USE_CYTHON else ".cpp"
 
 ext_modules = [
-  Extension(SRC_DIR + ".wrapped",
-    sources = [ SRC_DIR + "/wrapped" + ext, SRC_DIR + "/lib/KrovetzStemmer.cpp"],
-    include_dirs = [SRC_DIR + "/lib"],
+  Extension(src_path + ".wrapped",
+    sources = [ src_path + "/wrapped" + ext, src_path + "/lib/KrovetzStemmer.cpp"],
+    include_dirs = [src_path + "/lib"],
     libraries = [],
     extra_compile_args = ["-std=c++11"]
     )
