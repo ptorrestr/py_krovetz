@@ -25,6 +25,7 @@ before_install: |
     python --version
   fi
 install:
+  - pip install cython
   - python setup.py build
 script:
   - python setup.py pytest
