@@ -1,6 +1,5 @@
 from setuptools import setup
 from setuptools import Extension
-from Cython.Build import cythonize
 import subprocess
 
 def readme():
@@ -22,13 +21,26 @@ def version():
 NAME_APP = "krovetz"
 SRC_DIR = NAME_APP
 
+try:
+  import Cython
+  USE_CYTHON = True
+except:
+  USE_CYTHON = False
+
+ext = ".pyx" if USE_CYTHON else ".cpp"
+
 ext_modules = [
   Extension(SRC_DIR + ".wrapped",
-    sources = [ SRC_DIR + "/wrapped.pyx"],
+    sources = [ SRC_DIR + "/wrapped" + ext, SRC_DIR + "/lib/KrovetzStemmer.cpp"],
+    include_dirs = [SRC_DIR + "/lib"],
     libraries = [],
     extra_compile_args = ["-std=c++11"]
     )
 ]
+
+if USE_CYTHON:
+  from Cython.Build import cythonize
+  ext_modules = cythonize(ext_modules)
 
 setup(
   name = NAME_APP,
@@ -45,7 +57,8 @@ setup(
   author_email = 'pablo.torres.t@gmail.com',
   license = 'GNU',
   packages = [NAME_APP],
-  ext_modules = cythonize(ext_modules, compiler_directives={'embedsignature': True}),
-  install_requires = [ 'cython' ],
+  ext_modules = ext_modules,
+  setup_requires = [],
+  install_requires = [],
   test_requires = ['pytest','pytest-runner'],
 )

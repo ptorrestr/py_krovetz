@@ -12,6 +12,7 @@ dist
 __pycache__
 *.egg-info
 .cache
+*.eggs
 
 
 # vim

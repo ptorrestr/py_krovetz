@@ -1,6 +1,3 @@
-cdef extern from "lib/KrovetzStemmer.cpp":
-    pass
-
 cdef extern from "lib/KrovetzStemmer.hpp" namespace "stem":
     cdef cppclass KrovetzStemmer:
         KrovetzStemmer() except +
