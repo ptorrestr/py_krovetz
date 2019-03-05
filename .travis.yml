@@ -17,6 +17,7 @@ before_install: |
     #brew update
     #brew install openssl readline
     #brew install pyenv
+    pyenv versions
     pyenv install --list
     pyenv install $PYTHON_VERSION
     pyenv global $PYTHON_VERSION
