@@ -11,17 +11,16 @@ matrix:
       python: "3.6"
     - os: osx
       language: "generic"
-      env: PYTHON_VERSION=3.6.9
+      env: PYTHON_VERSION=3.6.7
 before_install: | 
   if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-    brew update
-    brew install openssl readline
-    brew install pyenv
+    #brew update
+    #brew install openssl readline
+    #brew install pyenv
     pyenv install $PYTHON_VERSION
-    export PYENV_VERSION=$PYTHON
-    export PATH="${HOME}/.pyenv/shims:${PATH}"
-    pyenv-virtualenv venv
-    source venv/bin/activate
+    pyenv global $PYTHON_VERSION
+    #export PYENV_VERSION=$PYTHON
+    #export PATH="${HOME}/.pyenv/shims:${PATH}"
     python --version
   fi
 install:
