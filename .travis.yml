@@ -13,20 +13,16 @@ matrix:
       env: PYTHON=python
     - os: osx
       language: "generic"
-      env:
-        - PYTHON_VERSION=3.6.5
-        - PYTHON=python3
+      env: INSTALL_TYPE=macpython VERSION=3.6 VENV=venv
 before_install: | 
   if [ "$TRAVIS_OS_NAME" == "osx" ]; then
-    pyenv install $PYTHON_VERSION
-    pyenv global $PYTHON_VERSION
-    pyenv rehash
-    pyenv versions
-    echo $PATH
-    $PYTHON --version
+    git clone https://github.com/MacPython/terryfy.git
+    # Avoid printing the lines from the script below.
+    source terryfy/travis_tools.sh
+    get_python_environment $INSTALL_TYPE $VERSION $VENV
   fi
 install:
   - pip install cython
-  - $PYTHON setup.py build
+  - python setup.py build
 script:
-  - $PYTHON setup.py test
+  - python setup.py test
