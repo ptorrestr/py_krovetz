@@ -45,12 +45,21 @@ except:
 
 ext = ".pyx" if USE_CYTHON else ".cpp"
 
+import platform
+extra_compile_args = ["-std=c++11"]
+extra_link_args = []
+if platform.system() == 'Darwin':
+    extra_compile_args.append("-stdlib=libc++")
+    extra_compile_args.append("-mmacosx-version-min=10.9")
+    extra_link_args.append("-mmacosx-version-min=10.9")
+
 ext_modules = [
   Extension(src_path + ".wrapped",
     sources = [ src_path + "/wrapped" + ext, src_path + "/lib/KrovetzStemmer.cpp"],
     include_dirs = [src_path + "/lib"],
     libraries = [],
-    extra_compile_args = ["-std=c++11"]
+    extra_compile_args = extra_compile_args,
+    extra_link_args = extra_link_args
     )
 ]
 
