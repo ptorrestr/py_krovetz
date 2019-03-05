@@ -19,9 +19,10 @@ matrix:
 before_install: | 
   if [ "$TRAVIS_OS_NAME" == "osx" ]; then
     pyenv install $PYTHON_VERSION
-    pyenv rehash
     pyenv global $PYTHON_VERSION
+    pyenv rehash
     pyenv versions
+    echo $PATH
     $PYTHON --version
   fi
 install:
