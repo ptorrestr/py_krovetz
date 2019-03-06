@@ -91,4 +91,5 @@ setup(
   setup_requires = ['pytest-runner'],
   install_requires = [],
   tests_require = ['pytest','pytest-benchmark'],
+  test_suite = 'tests',
 )
