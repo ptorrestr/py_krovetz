@@ -11,9 +11,6 @@ matrix:
       python: "3.6"
     - os: osx
       language: "generic"
-      env: INSTALL_TYPE=macpython VERSION=3.5 VENV=venv
-    - os: osx
-      language: "generic"
       env: INSTALL_TYPE=macpython VERSION=3.6 VENV=venv
 before_install: |
   if [ "$TRAVIS_OS_NAME" == "osx" ]; then
@@ -21,7 +18,6 @@ before_install: |
     # Avoid printing the lines from the script below.
     source terryfy/travis_tools.sh
     get_python_environment $INSTALL_TYPE $VERSION $VENV
-    python -c "import ssl; print(ssl.OPENSSL_VERSION)"
   fi
 install:
   - pip install cython
