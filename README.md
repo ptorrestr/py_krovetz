@@ -6,11 +6,27 @@ This is a Python wrapper for [Krovetz Stemmer C++ library](https://sourceforge.n
 
 ## Installation
 
-`python setup.py install`
+### Pypi
 
-## Testing
+`pip install -i https://test.pypi.org/simple/ krovetz`
 
-`python setup.py pytest`
+### Git
+
+It requires `cython` to be installed.
+
+`pip install git+https://github.com/ptorrestr/py_krovetz.git`
+
+## Development
+
+## Import
+`git clone https://github.com/ptorrestr/py_krovetz.git`
+
+### Environment setup
+It requires `pipenv` to be installed.
+`pipenv install`
+
+### Testing
+`pienv run python setup.py test`
 
 ## Usage
 
