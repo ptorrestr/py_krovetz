@@ -11,6 +11,9 @@ matrix:
       python: "3.6"
     - os: osx
       language: "generic"
+      env: INSTALL_TYPE=macpython VERSION=3.5 VENV=venv
+    - os: osx
+      language: "generic"
       env: INSTALL_TYPE=macpython VERSION=3.6 VENV=venv
 before_install: |
   if [ "$TRAVIS_OS_NAME" == "osx" ]; then
