@@ -21,6 +21,7 @@ before_install: |
     # Avoid printing the lines from the script below.
     source terryfy/travis_tools.sh
     get_python_environment $INSTALL_TYPE $VERSION $VENV
+    python -c "import ssl; print(ssl.OPENSSL_VERSION)"
   fi
 install:
   - pip install cython
