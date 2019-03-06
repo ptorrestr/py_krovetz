@@ -1,2 +1,2 @@
 recursive-include krovetz *.py *.cpp *.hpp *.pyx *.pxd
-include VERSION
+include VERSION LICENSE

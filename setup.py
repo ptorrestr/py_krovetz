@@ -85,7 +85,7 @@ setup(
   url = 'http://github.com/ptorrestr/py_krovetz',
   author = 'Pablo Torres',
   author_email = 'pablo.torres.t@gmail.com',
-  license = 'GNU',
+  license = 'MIT',
   packages = [NAME_APP],
   ext_modules = ext_modules,
   setup_requires = ['pytest-runner'],
