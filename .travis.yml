@@ -15,7 +15,7 @@ matrix:
       env: DOCKER_IMAGE=quay.io/pypa/manylinux1_x86_64
     - os: osx
       language: "generic"
-      env: INSTALL_TYPE=macpython VERSION=3.6 VENV=venv
+      env: INSTALL_TYPE=macpython VERSION=3.6 VENV=venv MACOSX_DEPLOYMENT_TARGET=10.9
 before_install: |
   if [ "$TRAVIS_OS_NAME" == "osx" ]; then
     git clone https://github.com/MacPython/terryfy.git
@@ -46,10 +46,6 @@ after_success: |
       cp wheelhouse/*.whl dist
     else
       if [ "${TRAVIS_OS_NAME}" == "osx" ]; then
-        # clean build
-        rm -r build
-        # Force 10.9 system
-        export MACOSX_DEPLOYMENT_TARGET=10.9
         # Linux creates the source distribution, no need for macos.
         python setup.py bdist_wheel
       else
