@@ -46,6 +46,10 @@ after_success: |
       cp wheelhouse/*.whl dist
     else
       if [ "${TRAVIS_OS_NAME}" == "osx" ]; then
+        # clean build
+        rm -r build
+        # Force 10.9 system
+        export MACOSX_DEPLOYMENT_TARGET=10.9
         # Linux creates the source distribution, no need for macos.
         python setup.py bdist_wheel
       else
