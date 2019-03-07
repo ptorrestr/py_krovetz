@@ -5,6 +5,10 @@ VERSION
 krovetz/wrapped.cpp
 krovetz/wrapped.c
 
+# wheels
+wheelhouse
+requirements.txt
+
 # build
 build
 c++
