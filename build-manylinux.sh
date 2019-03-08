@@ -23,6 +23,6 @@ done
 
 # Install packages and test
 for PYBIN in /opt/python/cp3[5-7]*/bin/; do
-§	"${PYBIN}/pip" install krovetz --no-index -f /io/wheelhouse
+	"${PYBIN}/pip" install krovetz --no-index -f /io/wheelhouse
 	(cd "$HOME"; "${PYBIN}/pytest" /io/tests --benchmark-skip)
 done
