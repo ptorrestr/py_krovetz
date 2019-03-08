@@ -53,8 +53,6 @@ after_success: |
       fi
     fi
     TWINE_EXTRA_FLAGS=""
-    if [ -v PYPI_REPOSITORY_URL ]; then
-      TWINE_EXTRA_FLAGS="--repository-url $PYPI_REPOSITORY_URL"
-    fi
+    [[ ! -v PYPI_REPOSITORY_URL ]] && TWINE_EXTRA_FLAGS="--repository-url $PYPI_REPOSITORY_URL"
     twine upload $TWINE_EXTRA_FLAGS -u $PYPI_USERNAME -p $PYPI_PASSWORD dist/*
   fi
