@@ -8,6 +8,7 @@ set -x -e
 # Make sure no build from the system is kept. This can link
 # the wheel to the host libraries.
 rm -rf /io/build
+rm -rf /io/tests/__pycache__
 
 # Compile wheels
 for PYBIN in /opt/python/cp3[5-7]*/bin; do

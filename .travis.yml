@@ -33,7 +33,7 @@ after_success: |
     pip install twine
     # A single linux can do the wheel for other verions
     if [ "${TRAVIS_OS_NAME}" == "linux" ] && [ "${TRAVIS_PYTHON_VERSION}" == "3.6" ]; then
-      # Only one linux builds source istribution 
+      # Only one linux builds source istribution
       python setup.py sdist
       # Generate requirements.txt file
       pip install pipenv
